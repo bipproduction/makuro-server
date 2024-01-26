@@ -1,0 +1,15 @@
+{
+  "name": "makuro-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cross-fetch": "^4.0.0",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "log-update": "^6.0.0",
+    "markdown-table-prettify": "^3.6.0",
+    "ora": "^8.0.1",
+    "yargs": "^17.7.2"
+  }
+}
