@@ -3,6 +3,7 @@ const { fetch } = require('cross-fetch')
 const _data = {}
 const _ = require('lodash')
 
+
 module.exports = async function (param) {
     
     const apps = await fetch(`${_data.url}/val/app`).then(v => v.json())
