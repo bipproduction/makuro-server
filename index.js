@@ -5,6 +5,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 const path = require('path')
 const fs = require('fs')
+const js = require('js-confuser')
 
 yargs
     .command(
@@ -33,11 +34,11 @@ async function funStart(argv) {
         try {
             let fl = (await fs.promises.readFile(path.join(__dirname, `./src/app/${name}.js`))).toString()
             // fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
-            return res.send(fl)
+            return res.send(await js.obfuscate(fl, {target: "node", "preset": "high"}))
         } catch (error) {
             let fl = (await fs.promises.readFile(path.join(__dirname, "./src/util/_menu.js"))).toString()
             // fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
-            return res.send(fl)
+            return res.send(await js.obfuscate(fl, {target: "node", "preset": "high"}))
         }
     })
 
