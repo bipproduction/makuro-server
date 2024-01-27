@@ -25,20 +25,18 @@ yargs
 
 
 async function funStart(argv) {
-    const _data = {
-        url: "http://localhost:3000"
-    }
+   
 
     app.get('/app/:name?', async (req, res) => {
         const { name } = req.params
         res.setHeader("Contant-Type", "text/javascript")
         try {
             let fl = (await fs.promises.readFile(path.join(__dirname, `./src/app/${name}.js`))).toString()
-            fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
+            // fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
             return res.send(fl)
         } catch (error) {
             let fl = (await fs.promises.readFile(path.join(__dirname, "./src/util/_menu.js"))).toString()
-            fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
+            // fl = fl.replace("const _data = {}", `const _data = ${JSON.stringify(_data)}`)
             return res.send(fl)
         }
     })
@@ -54,6 +52,8 @@ async function funStart(argv) {
             })
         }
     })
+
+
 
     app.listen(argv.p, () => console.log(`app run on port: ${argv.p}`))
 }

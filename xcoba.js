@@ -1,16 +1,20 @@
-const text = `
-| Tables   |      Are      |  Cool    |
-|----------|:-------------:    |------:|
-| col 1 is |      apa kabar left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+const markdownIt = require('markdown-it');
+const _ = require('lodash')
+const md = markdownIt();
+const tab = require('tabletojson')
+const columnify = require('columnify');
+
+const tx = `
+alo apa kabar
+
+ini apa namanay
+| Nomor | Nama Instansi | Laporan |
+|---|---|---|
+| 1 | Dinas Pendidikan | 100 |
+| 2 | Dinas Kesehatan | 50 |
+| 3 | Dinas Pekerjaan Umum | 20 |
 `
 
-const c = require('markdown-table-prettify')
+const result = md.render(tx);
 
-;(async () => {
-    const a = c.CliPrettify.prettify(text)
-    console.log(a)
-
-    
-})()
+console.log(tab.tabletojson.convert(tx)[0])

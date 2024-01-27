@@ -8,6 +8,6 @@ module.exports = async function () {
 
     return {
         success: true,
-        data: list_dir
+        data: list_dir.filter((v) => !_.startsWith(v.name, "_"))
     }
 }
