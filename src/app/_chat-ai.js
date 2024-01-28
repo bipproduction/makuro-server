@@ -7,7 +7,7 @@ module.exports = async function (param) {
     yargs
         .scriptName("makuro-app")
         .command(
-            "chat-ai",
+            "_chat-ai",
             "chat dengan ai",
             yargs => yargs
                 .options({
