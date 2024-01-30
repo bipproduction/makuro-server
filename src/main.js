@@ -17,9 +17,11 @@ module.exports = async function ({ argv, dir }) {
         .parse(argv)
 
     const param = { argv, dir }
-
+    
     if (!c.map((v) => v[0])) return yargs.showHelp();
     const url = svr.is_dev ? svr.url : svr.svr_url;
     (await require('require-from-url/sync')(`${url}/app/${arg._[0]}`))(param)
 
+
+    
 }
