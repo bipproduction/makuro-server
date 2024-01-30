@@ -6,7 +6,8 @@ module.exports = async function () {
         svr_url: "https://makuro-server.wibudev.com",
         url: dev && dev.is_dev ? "http://localhost:3000" : "https://makuro-ai.wibudev.com",
         ai_url: "https://makuro-ai.wibudev.com",
-        is_dev: dev && dev.is_dev ? true : false
+        is_dev: dev && dev.is_dev ? true : false,
+        host_name: "bips-MacBook-Air.local"
     }
 
     return _data
