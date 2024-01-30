@@ -45,11 +45,13 @@ async function funStart(argv) {
     app.get('/val/:name?', async (req, res) => {
         const { name } = req.params
         try {
-            return res.json(await require(path.join(__dirname, `./src/val/${name}.js`))())
+            const val = await require(path.join(__dirname, `./src/val/${name}.js`))()
+            return res.json(val)
         } catch (error) {
+            console.log(error)
             return res.json({
                 success: false,
-                message: "not found | error"
+                message: "val not found | error"
             })
         }
     })
