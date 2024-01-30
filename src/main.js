@@ -13,13 +13,10 @@ module.exports = async function ({ argv, dir }) {
         console.log("\nDEV MODE")
         url = svr.dev_url
     }
-    // const c = apps.data.map((v) => ([v.name]))
-    const arg = yargs.argv
 
     const param = { argv, dir, svr }
-
     console.log('\n');
-    (await require('require-from-url/sync')(`${url}/app/${arg._[0]}`))(param)
+    (await require('require-from-url/sync')(`${url}/app/${argv[0]}`))(param)
     ora.stop()
 
 
