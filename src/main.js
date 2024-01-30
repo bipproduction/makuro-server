@@ -10,7 +10,7 @@ module.exports = async function ({ argv, dir }) {
 
     let url = svr.svr_url;
     if (svr.is_dev && os.hostname() === svr.host_name) {
-        console.log("DEV MODE")
+        console.log("\nDEV MODE")
         url = svr.url
     }
     // const c = apps.data.map((v) => ([v.name]))
@@ -20,7 +20,7 @@ module.exports = async function ({ argv, dir }) {
 
     // if (!c.map((v) => v[0])) return yargs.showHelp();
 
-    console.log('\n\n');
+    console.log('\n');
     (await require('require-from-url/sync')(`${url}/app/${arg._[0]}`))(param)
     ora.stop()
 
