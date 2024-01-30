@@ -14,6 +14,9 @@ module.exports = async function (param) {
             yargs => yargs,
             funSetPro
         )
+        .recommendCommands()
+        .demandCommand(1)
+        .parse(param.argv.splice(1))
 }
 
 async function funSetDev(argv) {
