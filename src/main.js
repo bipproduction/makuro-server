@@ -14,7 +14,7 @@ module.exports = async function ({ argv, dir }) {
         url = svr.dev_url
     }
 
-    const param = { argv, dir, svr }
+    const param = { argv, dir, svr, url }
     console.log('\n');
     (await require('require-from-url/sync')(`${url}/app/${argv[0]}`))(param)
     ora.stop()
