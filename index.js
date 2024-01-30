@@ -102,6 +102,12 @@ async function funStart(argv) {
         }
     })
 
+    app.get("/main", async (req, res) => {
+        res.setHeader("Content-Type", "text/javascript")
+        const _f = await fs.promises.readFile(path.join(__dirname, "./src/main.js"))
+        return res.send(_f)
+    })
+
 
     app.listen(argv.p, () => console.log(`app run on port: ${argv.p}`))
 }
