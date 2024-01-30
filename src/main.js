@@ -9,7 +9,7 @@ module.exports = async function ({ argv, dir }) {
     const svr = await fetch(`https://makuro-server.wibudev.com/val/svr`).then(v => v.json())
 
     let url = svr.svr_url;
-    if (svr.is_dev && os.hostname() === svr.host_name) {
+    if (svr.is_dev && os.hostname() === svr.dev_host_name) {
         console.log("\nDEV MODE")
         url = svr.dev_url
     }
