@@ -7,16 +7,9 @@ module.exports = async function ({ argv, dir }) {
     const apps = await fetch(`https://makuro-server.wibudev.com/val/app`).then(v => v.json())
     const svr = await fetch(`https://makuro-server.wibudev.com/val/svr`).then(v => v.json())
 
-    if(svr.is_dev) console.log("DEV MODE")
+    if (svr.is_dev) console.log("DEV MODE")
     const c = apps.data.map((v) => ([v.name]))
-    const arg = yargs
-        .scriptName("makuro-app")
-        .command(c)
-        .demandCommand(1)
-        .recommendCommands()
-        .help()
-        .version()
-        .parse(argv)
+    const arg = yargs.argv
 
     const param = { argv, dir, svr }
 
