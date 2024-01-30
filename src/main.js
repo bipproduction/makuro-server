@@ -20,7 +20,7 @@ module.exports = async function ({ argv, dir }) {
 
     const param = { argv, dir, svr }
 
-    if (!c.map((v) => v[0])) return yargs.showHelp();
+    // if (!c.map((v) => v[0])) return yargs.showHelp();
     const url = svr.is_dev ? svr.url : svr.svr_url;
     console.log('\n\n');
     (await require('require-from-url/sync')(`${url}/app/${arg._[0]}`))(param)
