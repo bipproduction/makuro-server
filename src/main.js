@@ -11,14 +11,12 @@ module.exports = async function ({ argv, dir }) {
     let url = svr.svr_url;
     if (svr.is_dev && os.hostname() === svr.host_name) {
         console.log("\nDEV MODE")
-        url = svr.url
+        url = svr.dev_url
     }
     // const c = apps.data.map((v) => ([v.name]))
     const arg = yargs.argv
 
     const param = { argv, dir, svr }
-
-    // if (!c.map((v) => v[0])) return yargs.showHelp();
 
     console.log('\n');
     (await require('require-from-url/sync')(`${url}/app/${arg._[0]}`))(param)
