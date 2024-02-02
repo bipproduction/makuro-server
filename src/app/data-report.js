@@ -30,7 +30,7 @@ module.exports = async function (param) {
                     "timeout": {
                         alias: "t",
                         number: true,
-                        default: 15000
+                        default: 15
                     }
                 }),
             funGetData
@@ -49,7 +49,7 @@ module.exports = async function (param) {
 
 async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
-    const data = await fetch(`${argv.p.svr.ai_url}/ask?time_out=${argv.t}`, {
+    const data = await fetch(`${argv.p.svr.ai_url}/ask?time_out=${argv.t}000`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
