@@ -27,9 +27,9 @@ module.exports = async function (param) {
 }
 
 async function funSetDev(argv) {
-    fetch(`${argv.p.svr.svr_url}/dev/set-dev`).then(console.log)
+    fetch(`${argv.p.svr.svr_url}/dev/set-dev`).then(v => v.json()).then(console.log)
 }
 
 async function funSetPro(argv) {
-    fetch(`${argv.p.svr.svr_url}/dev/set-pro`).then(console.log)
+    fetch(`${argv.p.svr.svr_url}/dev/set-pro`).then(v => v.json()).then(console.log)
 }
