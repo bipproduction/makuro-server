@@ -26,6 +26,11 @@ module.exports = async function (param) {
                         alias: "e",
                         string: true,
                         default: "2023"
+                    },
+                    "timeout": {
+                        alias: "t",
+                        number: true,
+                        default: 15000
                     }
                 }),
             funGetData
@@ -44,7 +49,7 @@ module.exports = async function (param) {
 
 async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
-    const data = await fetch(`${argv.p.svr.ai_url}/ask`, {
+    const data = await fetch(`${argv.p.svr.ai_url}/ask?time_out=${argv.t}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -57,5 +62,5 @@ async function funGetData(argv) {
 
     const txmd = md.render(data)
     const result = columnify(tab.tabletojson.convert(txmd)[0])
-    console.log(_.isEmpty(result)? data: result)
+    console.log(_.isEmpty(result) ? data : result)
 }
