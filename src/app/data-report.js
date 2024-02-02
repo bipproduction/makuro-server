@@ -49,18 +49,22 @@ module.exports = async function (param) {
 
 async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
-    const data = await fetch(`${argv.p.svr.ai_url}/ask?time_out=${argv.t}000`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            q: `berikan tabel laporan total ${argv.q} Provinsi Bali per Kecamatan Tahun ${argv.s} dan ${argv.e}`
-        })
-    }).then(v => v.text())
-    ora.stop()
+    // const data = await fetch(`${argv.p.svr.ai_url}/ask?time_out=${argv.t}000`, {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         q: `berikan tabel laporan total ${argv.q} Provinsi Bali per Kecamatan Tahun ${argv.s} dan ${argv.e}`
+    //     })
+    // }).then(v => v.text())
+    // ora.stop()
 
-    const txmd = md.render(data)
-    const result = columnify(tab.tabletojson.convert(txmd)[0])
-    console.log(_.isEmpty(result) ? data : result)
+    // const txmd = md.render(data)
+    // const result = columnify(tab.tabletojson.convert(txmd)[0])
+    // console.log(_.isEmpty(result) ? data : result)
+
+    const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=berikan laporan berupa tabel total ${argv.q} di Provinsi Bali per Kecamatan Tahun ${argv.s} dan ${argv.e}`).then(v => v.text())
+    ora.stop()
+    console.log(data)
 }
