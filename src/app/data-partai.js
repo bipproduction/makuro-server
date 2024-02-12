@@ -15,7 +15,7 @@ module.exports = async function (param) {
                     "timeout": {
                         alias: "t",
                         number: true,
-                        default: 15
+                        default: 30
                     }
                 }),
             funGetData
