@@ -37,8 +37,9 @@ async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
 
     const q =`
-berikan data lengkap untuk data Parti ${argv.q}
+berikan data laporan berupa table lengkap untuk data Partai ${argv.q} dimalaysia tahun 2023
 
+berikut detail data yang saya butuhkan:
 * Nama partai
 * didirikan kapan
 * masih ada atau udah bubar, kalu bubar sertakan kapan dan kenapa
@@ -56,7 +57,7 @@ berikan data lengkap untuk data Parti ${argv.q}
 * track record style kampanye
 * dll kalo ada nemu boleh tambahin
 
-sajikan semua data ke bentuk markdown tabel
+sajikan semua data ke bentuk tabel markdown
     
     `
     const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=${q}&time_out=${argv.t}000`).then(v => v.text())
