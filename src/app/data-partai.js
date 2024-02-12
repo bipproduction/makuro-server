@@ -59,8 +59,7 @@ berikan data lengkap untuk data Parti ${argv.q}
 sajikan semua data ke bentuk markdown tabel
     
     `
-
-    const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=${q}&time_out=${argv.t}`).then(v => v.text())
+    const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=${q}&&time_out=${argv.t}`).then(v => v.text())
     ora.stop()
     console.log(data)
 }
