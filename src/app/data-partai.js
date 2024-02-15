@@ -36,10 +36,11 @@ module.exports = async function (param) {
 async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
 
-    const q =`
-berikan data laporan berupa table lengkap untuk data Partai ${argv.q} dimalaysia tahun 2023
+    const q = `
+berikan informasi Partai ${argv.q} dimalaysia tahun 2023 \n
 
-berikut detail data yang saya butuhkan:
+berikut detail informasi yang saya butuhkan:
+
 * Nama partai
 * didirikan kapan
 * masih ada atau udah bubar, kalu bubar sertakan kapan dan kenapa
@@ -63,4 +64,5 @@ sajikan semua data ke bentuk tabel markdown
     const data = await fetch(`${argv.p.svr.ai_url}/tanya?q=${q}&jenis=table`).then(v => v.text())
     ora.stop()
     console.log(data)
+
 }
