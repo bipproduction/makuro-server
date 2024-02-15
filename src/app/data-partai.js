@@ -60,7 +60,7 @@ berikut detail data yang saya butuhkan:
 sajikan semua data ke bentuk tabel markdown
     
     `
-    const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=${q}&time_out=${argv.t}000`).then(v => v.text())
+    const data = await fetch(`${argv.p.svr.ai_url}/tanya?q=${q}&jenis=table`).then(v => v.text())
     ora.stop()
     console.log(data)
 }
