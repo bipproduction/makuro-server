@@ -45,7 +45,7 @@ module.exports = async function (param) {
 async function funGetData(argv) {
     const ora = (await import('ora')).default("please wait ...").start()
 
-    const data = await fetch(`${argv.p.svr.ai_url}/ask-ai?q=berikan laporan berupa tabel total ${argv.q} di Provinsi Bali per Kecamatan Tahun ${argv.s} dan ${argv.e}`).then(v => v.text())
+    const data = await fetch(`${argv.p.svr.ai_url}/tanya?q=berikan laporan berupa tabel total ${argv.q} di Provinsi Bali per Kecamatan Tahun ${argv.s} dan ${argv.e} &jenis=table`).then(v => v.text())
     ora.stop()
     console.log(data)
 }
